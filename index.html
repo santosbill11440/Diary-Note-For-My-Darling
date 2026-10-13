@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#120F10">
+<title>Catatan</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<button class="glass" id="mb" aria-label="Kalender dan menu">☰</button>
+
+<section id="home">
+  <div id="bg"></div>
+  <canvas id="sky"></canvas>
+  <img class="plane" src="assets/stickers/plane.webp" alt="">
+  <div class="hm">
+    <div class="t" id="gt"></div><div class="d" id="gd"></div>
+    <h2 id="gh"></h2><p id="gp"></p>
+  </div>
+  <button class="hint" id="hint">↑ geser ke atas</button>
+</section>
+
+<div id="app">
+  <header><h1>Catatan</h1><div id="ck"></div><img class="logo" src="assets/stickers/prince.webp" alt=""></header>
+  <div class="tools"><input id="q" type="search" placeholder="Cari catatan" aria-label="Cari catatan"></div>
+  <div class="chips" id="chips"></div>
+  <main id="v"></main>
+  <button class="fab" id="add" aria-label="Catatan baru">+</button>
+</div>
+
+<nav class="pill glass"><button data-n="home">Beranda</button><button data-n="notes" class="on">Catatan</button><button data-n="cal">Kalender</button></nav>
+
+<div id="pop"><div id="pc" class="glass"></div></div>
+
+<div id="ed">
+  <div class="bar">
+    <button class="ib" id="bk">‹ Simpan</button><span></span>
+    <button class="ib" id="pn">Sematkan</button>
+    <button class="ib" id="dl">Hapus</button>
+  </div>
+  <div class="body">
+    <div class="seg" id="sg"></div>
+    <input id="et" placeholder="Judul" maxlength="120">
+    <textarea id="eb" placeholder="Tulis di sini..."></textarea>
+  </div>
+  <div class="rem" id="rem"><span id="rl">Tanggal</span><input type="date" id="edd"><input type="time" id="edt"></div>
+  <div class="cols" id="cols"></div>
+  <img id="edi" alt="">
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/home.js"></script>
+<script src="js/notes.js"></script>
+<script src="js/calendar.js"></script>
+<script src="js/backup.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

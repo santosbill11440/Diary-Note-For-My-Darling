@@ -1,0 +1,6 @@
+/* Service worker: agar aplikasi tetap jalan offline.
+   Kalau kamu mengubah file apa pun, naikkan angka versi di bawah. */
+const V="catatan-v3",FILES=["./", "index.html", "manifest.json", "css/style.css", "js/app.js", "js/backup.js", "js/calendar.js", "js/home.js", "js/notes.js", "js/storage.js", "assets/banner.webp", "assets/bg_blue.webp", "assets/bg_collage.webp", "assets/bg_swirl.webp", "assets/diary.webp", "assets/home.jpg", "assets/paper.webp", "assets/stickers/birds.webp", "assets/stickers/elephant.webp", "assets/stickers/fox.webp", "assets/stickers/moon.webp", "assets/stickers/plane.webp", "assets/stickers/planet.webp", "assets/stickers/prince.webp", "assets/stickers/prince_fox.webp", "assets/stickers/rose.webp", "assets/stickers/sheep.webp", "icons/icon-192.png", "icons/icon-512.png"];
+self.addEventListener("install",e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting()))});
+self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
+self.addEventListener("fetch",e=>{if(e.request.method!=="GET")return;e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)))});
